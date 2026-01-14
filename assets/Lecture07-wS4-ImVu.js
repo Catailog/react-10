@@ -1,0 +1,1 @@
+import{r as o,j as e}from"./index-CpwCK3Iq.js";import{B as r}from"./Button-u-_tVIFz.js";function c(){const[t,n]=o.useState(!1),s=()=>{n(!t)};return e.jsxs(e.Fragment,{children:[t?"Online":"Offline",e.jsx(r,{onClick:s,children:"로그인"})]})}export{c as default};

@@ -1,0 +1,1 @@
+import{u as e,j as n}from"./index-CpwCK3Iq.js";import{B as t}from"./Button-u-_tVIFz.js";function r(){const s=e();return n.jsxs(n.Fragment,{children:[n.jsx("p",{children:"Not Found"}),n.jsxs("div",{className:"flex gap-4",children:[n.jsx(t,{onClick:()=>s("/"),children:"홈으로"}),n.jsx(t,{onClick:()=>s(-1),children:"이전 페이지로"})]})]})}export{r as default};

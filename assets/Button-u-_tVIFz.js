@@ -1,0 +1,1 @@
+import{j as o}from"./index-CpwCK3Iq.js";function n({children:e,onClick:r}){return o.jsx("button",{className:"bg-emerald-300 rounded-lg px-4 py-2 font-bold hover:bg-emerald-500 active:bg-emerald-700 cursor-pointer",onClick:r,children:e})}export{n as B};
