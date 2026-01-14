@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router';
+import { lazy, Suspense } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const Layout = lazy(() => import('./components/Layout'));
+  const Home = lazy(() => import('./pages/Home'));
+  const NotFound = lazy(() => import('./pages/NotFound'));
+  const Lecture01 = lazy(() => import('./pages/lecture01/Lecture01'));
+  const Lecture03Ex = lazy(() => import('./pages/lecture03-exercise/Lecture03Ex'));
+  const Lecture06 = lazy(() => import('./pages/lecture06/Lecture06'));
+  const Lecture07 = lazy(() => import('./pages/lecture07/Lecture07'));
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {/* Layout이 있는 페이지 */}
+          <Route element={<Layout />}>
+            <Route index element={<Home />}></Route>
+            <Route path="lecture01" element={<Lecture01 />}></Route>
+            <Route path="lecture03Ex" element={<Lecture03Ex />}></Route>
+            <Route path="lecture06" element={<Lecture06 />}></Route>
+            <Route path="lecture07" element={<Lecture07 />}></Route>
+          </Route>
 
-export default App
+          {/* 404 페이지 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
