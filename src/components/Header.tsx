@@ -11,6 +11,7 @@ export function Header() {
         <NavLinkItem to="/lecture05">lecture05</NavLinkItem>
         <NavLinkItem to="/lecture06">lecture06</NavLinkItem>
         <NavLinkItem to="/lecture07">lecture07</NavLinkItem>
+        <NavLinkItem to="/lecture09">lecture09</NavLinkItem>
         <NavLinkItem to="/lecture09Ex">lecture09Ex</NavLinkItem>
         <NavLinkItem to="/lecture15">lecture15</NavLinkItem>
         <NavLinkItem to="/lecture15Ex">lecture15Ex</NavLinkItem>

@@ -20,6 +20,7 @@ export default function App() {
   const Lecture05Layout02 = lazy(() => import('@/lectures/lecture05/components/Layout02'));
   const Lecture06 = lazy(() => import('@/lectures/lecture06/Lecture06'));
   const Lecture07 = lazy(() => import('@/lectures/lecture07/Lecture07'));
+  const Lecture09 = lazy(() => import('@/lectures/lecture09/Lecture09'));
   const Lecture09Ex = lazy(() => import('@/lectures/lecture09-exercise/Lecture09Ex'));
   const Lecture15 = lazy(() => import('@/lectures/lecture15/pages/ContextPage'));
   const Lecture15Ex = lazy(() => import('@/lectures/lecture15-exercise/ThemeApp'));
@@ -49,6 +50,7 @@ export default function App() {
             </Route>
             <Route path="lecture06" element={<Lecture06 />}></Route>
             <Route path="lecture07" element={<Lecture07 />}></Route>
+            <Route path="lecture09" element={<Lecture09 />}></Route>
             <Route path="lecture09Ex" element={<Lecture09Ex />}></Route>
             <Route path="lecture15" element={<Lecture15 />}></Route>
             <Route path="lecture15Ex" element={<Lecture15Ex />}></Route>
