@@ -51,8 +51,8 @@ export default function PageTitle() {
 
   return (
     <div className={`${style} flex flex-row justify-between border-b p-4 transition-all`}>
-      <h1 className="text-2xl font-bold">📝 {title}</h1>
-      <div className="flex flex-row gap-4">
+      <h1 className="flex flex-row items-center text-2xl font-bold">📝 {title}</h1>
+      <div className="flex flex-row items-center gap-4">
         <button type="button" className={btnStyle} onClick={toggleTheme}>
           {themeLabel}
         </button>
