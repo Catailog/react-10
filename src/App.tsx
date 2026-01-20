@@ -7,8 +7,8 @@ import { type RouteType, routes } from '@/routes/routes';
 export default function App() {
   const Layout = lazy(() => import('@/components/Layout'));
   const NotFound = lazy(() => import('@/lectures/NotFound'));
-  const renderRoutes = (routes: RouteType[]) =>
-    routes.map((route) => {
+  const renderRoutes = (routeList: RouteType[]) =>
+    routeList.map((route) => {
       if ('children' in route && route.children) {
         return (
           <Route key={route.path} path={route.path} element={<route.element />}>

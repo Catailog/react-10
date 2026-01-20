@@ -1,22 +1,43 @@
+import { type RouteType, routes } from '@/routes/routes';
+
 import { NavLinkItem } from './NavLinkItem';
+
+const navRoutes = extractNavRoutes(routes);
 
 export function Header() {
   return (
     <header className="bg-amber-500">
       <nav className="container mx-auto flex gap-2 overflow-x-scroll">
-        <NavLinkItem to="/">Home</NavLinkItem>
-        <NavLinkItem to="/lecture01">lecture01</NavLinkItem>
-        <NavLinkItem to="/lecture03Ex">lecture03Ex</NavLinkItem>
-        <NavLinkItem to="/lecture04">lecture04</NavLinkItem>
-        <NavLinkItem to="/lecture05">lecture05</NavLinkItem>
-        <NavLinkItem to="/lecture06">lecture06</NavLinkItem>
-        <NavLinkItem to="/lecture07">lecture07</NavLinkItem>
-        <NavLinkItem to="/lecture09">lecture09</NavLinkItem>
-        <NavLinkItem to="/lecture09Ex">lecture09Ex</NavLinkItem>
-        <NavLinkItem to="/lecture15">lecture15</NavLinkItem>
-        <NavLinkItem to="/lecture15Ex">lecture15Ex</NavLinkItem>
-        <NavLinkItem to="/lecture15Ex02">lecture15Ex02</NavLinkItem>
+        {navRoutes.map((route) => (
+          <NavLinkItem key={route.to} to={route.to}>
+            {route.label}
+          </NavLinkItem>
+        ))}
       </nav>
     </header>
   );
+}
+
+type NavRoute = {
+  to: string;
+  label: string;
+};
+
+function extractNavRoutes(routes: RouteType[], parentPath = ''): NavRoute[] {
+  return routes.flatMap((route) => {
+    if (!route.path || route.hideInNav || !route.label) return [];
+
+    const fullPath = route.path === '/' ? '/' : `${parentPath}/${route.path}`.replace(/\/+/g, '/');
+
+    const current: NavRoute = {
+      to: fullPath.replace('/*', ''),
+      label: route.label,
+    };
+
+    const children = route.children
+      ? extractNavRoutes(route.children, fullPath.replace('/*', ''))
+      : [];
+
+    return [current, ...children];
+  });
 }
