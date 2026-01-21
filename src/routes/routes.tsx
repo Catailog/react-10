@@ -119,4 +119,9 @@ export const routes: RouteType[] = [
     element: lazy(() => import('@/lectures/lecture16/Lecture16')),
     label: 'lecture16',
   },
+  {
+    path: 'lecture20',
+    element: lazy(() => import('@/lectures/lecture20/Lecture20')),
+    label: 'lecture20',
+  },
 ] as const;
