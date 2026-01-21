@@ -28,7 +28,7 @@ export default function Cards() {
   return (
     <div
       className={clsx(
-        'mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8',
+        'mx-auto max-w-7xl px-4 py-16 transition-all sm:px-6 lg:px-8',
         theme === 'light' ? 'bg-white' : 'bg-gray-700',
       )}
     >

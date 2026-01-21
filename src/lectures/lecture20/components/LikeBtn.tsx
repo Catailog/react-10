@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 
-import useTheme from '@/lectures/lecture20/hooks/useTheme';
-
 export default function LikeBtn({
   isLiked,
   onToggleLike,
@@ -9,20 +7,18 @@ export default function LikeBtn({
   isLiked: boolean;
   onToggleLike: () => void;
 }) {
-  const { theme } = useTheme();
   return (
     <button
-      className={clsx('cursor-pointer hover:text-red-500', {
-        'text-red-500': isLiked,
-        'text-gray-600': !isLiked && theme === 'light',
-        'text-gray-400': !isLiked && theme === 'dark',
+      className={clsx('cursor-pointer transition-all hover:text-red-500', {
+        'text-gray-400 [--fill:transparent]': !isLiked,
+        'text-red-500 [--fill:currentColor]': isLiked,
       })}
       onClick={onToggleLike}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
-        fill={isLiked ? 'currentColor' : 'none'}
+        className="h-6 w-6 transition-all"
+        fill="var(--fill)"
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
