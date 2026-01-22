@@ -2,8 +2,14 @@ export default function Modal({ isOpen, onClose }: { isOpen: boolean; onClose: (
   if (!isOpen) return null;
 
   return (
-    <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl"
+      >
         <h3 className="mb-4 text-2xl font-bold">🎉 모달 창</h3>
         <p className="mb-6 text-gray-600">
           useToggle Hook을 사용하여 모달을 쉽게 관리할 수 있습니다.
