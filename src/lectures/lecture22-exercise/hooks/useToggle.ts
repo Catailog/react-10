@@ -5,17 +5,14 @@ function useToggle(initialValue: boolean = false) {
   const [value, setValue] = React.useState(initialValue);
 
   const toggle = () => {
-    // 여기에 코드를 작성하세요
     setValue((prev) => !prev);
   };
 
   const setTrue = () => {
-    // 여기에 코드를 작성하세요
     setValue(true);
   };
 
   const setFalse = () => {
-    // 여기에 코드를 작성하세요
     setValue(false);
   };
 

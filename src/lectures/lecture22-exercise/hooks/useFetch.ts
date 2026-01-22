@@ -15,7 +15,6 @@ function useFetch<T>(url: string): UseFetchResult<T> {
 
   const fetchData = async () => {
     try {
-      // 여기에 코드를 작성하세요
       // 1. loading을 true로 설정
       setLoading(true);
       // 2. error를 null로 초기화

@@ -5,7 +5,6 @@ function useLocalStorage<T>(key: string, initialValue: T) {
   // useState의 lazy initialization을 사용하세요
   const [storedValue, setStoredValue] = React.useState<T>(() => {
     try {
-      // 여기에 코드를 작성하세요
       // 1. localStorage에서 key로 아이템 가져오기
       const nameJson = localStorage.getItem('demo-name') || '';
       // 2. 아이템이 있으면 JSON.parse 후 반환
@@ -20,7 +19,6 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 
   const setValue = (value: T | ((val: T) => T)) => {
     try {
-      // 여기에 코드를 작성하세요
       // 1. value가 함수인지 확인 (함수형 업데이트 지원)
       const newValue = typeof value === 'function' ? (value as (val: T) => T)(storedValue) : value;
       // 2. storedValue 상태 업데이트

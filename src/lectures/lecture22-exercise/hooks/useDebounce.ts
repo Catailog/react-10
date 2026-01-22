@@ -8,7 +8,6 @@ function useDebounce<T>(value: T, delay: number = 500): T {
     // 1. delay 시간 후에 debouncedValue를 업데이트하는 타이머 설정
     // 2. cleanup 함수에서 이전 타이머 제거 (중요!)
 
-    // 여기에 코드를 작성하세요
     const handler = setTimeout(() => {
       // debouncedValue 업데이트
       setDebouncedValue(value);
