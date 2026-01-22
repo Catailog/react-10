@@ -21,7 +21,7 @@ export const routes: RouteType[] = [
     label: 'lecture01',
   },
   {
-    path: 'lecture03Ex',
+    path: 'lecture03-ex',
     element: lazy(() => import('@/lectures/lecture03-exercise/Lecture03Ex')),
     label: 'lecture03Ex',
   },
@@ -95,7 +95,7 @@ export const routes: RouteType[] = [
     label: 'lecture09',
   },
   {
-    path: 'lecture09Ex',
+    path: 'lecture09-ex',
     element: lazy(() => import('@/lectures/lecture09-exercise/Lecture09Ex')),
     label: 'lecture09Ex',
   },
@@ -105,12 +105,12 @@ export const routes: RouteType[] = [
     label: 'lecture15',
   },
   {
-    path: 'lecture15Ex',
+    path: 'lecture15-ex',
     element: lazy(() => import('@/lectures/lecture15-exercise/ThemeApp')),
     label: 'lecture15Ex',
   },
   {
-    path: 'lecture15Ex02',
+    path: 'lecture15-ex02',
     element: lazy(() => import('@/lectures/lecture15-exercise02/ThemeApp')),
     label: 'lecture15Ex02',
   },
@@ -130,7 +130,7 @@ export const routes: RouteType[] = [
     label: 'lecture22',
   },
   {
-    path: 'lecture22Ex',
+    path: 'lecture22-ex',
     element: lazy(() => import('@/lectures/lecture22-exercise/Lecture22Ex')),
     label: 'lecture22Ex',
   },
