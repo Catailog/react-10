@@ -1,4 +1,4 @@
-import type { User } from '@/lectures/lecture22-exercise/Lecture22Ex';
+import type { User } from '@/lectures/lecture22-exercise/types/user';
 
 export interface UseFetchDemoProps {
   loading: boolean;
