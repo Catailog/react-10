@@ -9,7 +9,7 @@ function useLocalStorage<T>(key: string, initialValue: T) {
       // 1. localStorage에서 key로 아이템 가져오기
       const nameJson = localStorage.getItem('demo-name') || '';
       // 2. 아이템이 있으면 JSON.parse 후 반환
-      const name = JSON.parse(nameJson) || '';
+      const name = nameJson ? JSON.parse(nameJson) : '';
       // 3. 아이템이 없으면 initialValue 반환
       return name || initialValue;
     } catch (error) {
