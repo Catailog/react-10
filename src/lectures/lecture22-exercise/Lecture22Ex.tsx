@@ -4,10 +4,9 @@ import UseDebounceDemo from '@/lectures/lecture22-exercise/components/UseDebounc
 import UseFetchDemo from '@/lectures/lecture22-exercise/components/UseFetchDemo';
 import UseLocalStorageDemo from '@/lectures/lecture22-exercise/components/UseLocalStorageDemo';
 import UseToggleDemo from '@/lectures/lecture22-exercise/components/UseToggleDemo';
+import useDebounce from '@/lectures/lecture22-exercise/hooks/useDebounce';
+import useFetch from '@/lectures/lecture22-exercise/hooks/useFetch';
 import type { User } from '@/lectures/lecture22-exercise/types/user';
-
-import useDebounce from './hooks/useDebounce';
-import useFetch from './hooks/useFetch';
 
 export default function Lecture22Ex() {
   const [searchTerm, setSearchTerm] = React.useState('');
