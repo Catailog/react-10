@@ -44,8 +44,14 @@ function ShoppingApp() {
   }
 
   const BASE_URL = '/products.json';
+  const initFilter = () => {
+    return {
+      category: null,
+      priceRange: { min: 0, max: 300000 },
+    };
+  };
   const [products, setProducts] = useState<Product[]>([]);
-  const [filter, setFilter] = useState<Filter>({ category: null, priceRange: null });
+  const [filter, setFilter] = useState<Filter>(initFilter);
   const { data, error, isLoading } = useFetch<FetchResponse>(BASE_URL);
 
   const filteredProducts = useMemo(() => {
@@ -72,8 +78,16 @@ function ShoppingApp() {
     setFilter((prev) => ({ ...prev, category }));
   };
 
-  const setPriceRange = (range: PriceRange | null) => {
-    setFilter((prev) => ({ ...prev, priceRange: range }));
+  const setMinPrice = (price: number) => {
+    setFilter((prev) => ({ ...prev, priceRange: { ...prev.priceRange, min: price } }));
+  };
+
+  const setMaxPrice = (price: number) => {
+    setFilter((prev) => ({ ...prev, priceRange: { ...prev.priceRange, max: price } }));
+  };
+
+  const resetFilter = () => {
+    setFilter(initFilter());
   };
 
   return (
@@ -81,7 +95,13 @@ function ShoppingApp() {
       <div className="container mx-auto p-4">
         <Header />
         <div className="flex flex-row gap-6">
-          <SideMenu filter={filter} setCategory={setCategory} setPriceRange={setPriceRange} />
+          <SideMenu
+            filter={filter}
+            setCategory={setCategory}
+            setMinPrice={setMinPrice}
+            setMaxPrice={setMaxPrice}
+            resetFilter={resetFilter}
+          />
           <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
             <h2 className="mb-4 text-2xl font-bold">전체 상품 ({filteredProducts.length})</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

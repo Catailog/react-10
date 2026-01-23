@@ -3,5 +3,5 @@ import type { PriceRange } from '@/lectures/lecture26-exercise/types/priceRange'
 
 export type Filter = {
   category: Category | null;
-  priceRange: PriceRange | null;
+  priceRange: PriceRange;
 };
