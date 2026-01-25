@@ -1,7 +1,7 @@
 import type { Category } from '@/lectures/lecture26-exercise/types/category';
 
 // 제품 타입 정의
-export interface Product {
+export interface ProductType {
   id: number;
   name: string;
   price: number;
@@ -14,7 +14,7 @@ export interface Product {
 }
 
 // 제품 데이터 (assets 폴더의 이미지 활용)
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: ProductType[] = [
   {
     id: 1,
     name: '무선 이어폰',

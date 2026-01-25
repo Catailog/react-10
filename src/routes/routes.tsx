@@ -135,8 +135,15 @@ export const routes: RouteType[] = [
     label: 'lecture22Ex',
   },
   {
-    path: 'lecture26-ex',
-    element: lazy(() => import('@/lectures/lecture26-exercise/Lecture26Ex')),
+    path: 'lecture26-ex/*',
+    element: lazy(() => import('@/lectures/lecture26-exercise/components/Layout')),
     label: 'lecture26Ex',
+    children: [
+      {
+        index: true,
+        element: lazy(() => import('@/lectures/lecture26-exercise/pages/product')),
+        hideInNav: true,
+      },
+    ],
   },
 ] as const;
