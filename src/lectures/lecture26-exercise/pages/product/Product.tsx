@@ -15,6 +15,11 @@ export default function Product({ products }: { products: ProductType[] }) {
     setIsModalOpened((prev) => !prev);
   };
 
+  const handleAddCart = (product: ProductType, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    increaseQuantity(product);
+  };
+
   return (
     <>
       {products.map((product) => (
@@ -49,9 +54,7 @@ export default function Product({ products }: { products: ProductType[] }) {
             <Button
               variant="primary"
               size="sm"
-              onClick={() => {
-                increaseQuantity(product);
-              }}
+              onClick={(e) => handleAddCart(product, e)}
               className="w-full"
             >
               🛒 장바구니 담기

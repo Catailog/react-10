@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router';
 
 import MenuButton from '@/lectures/lecture26-exercise/components/common/MenuButton';
-import SearchBar from '@/lectures/lecture26-exercise/components/header/SearchBar';
+import SearchBar from '@/lectures/lecture26-exercise/components/layout/SearchBar';
 import useCart from '@/lectures/lecture26-exercise/features/cart/useCart';
 import useTheme from '@/lectures/lecture26-exercise/features/theme/useTheme';
 

@@ -136,7 +136,7 @@ export const routes: RouteType[] = [
   },
   {
     path: 'lecture26-ex/*',
-    element: lazy(() => import('@/lectures/lecture26-exercise/components/Layout')),
+    element: lazy(() => import('@/lectures/lecture26-exercise/components/layout/Layout')),
     label: 'lecture26Ex',
     children: [
       {

@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 
-import Header from '@/lectures/lecture26-exercise/components/header/Header';
+import Footer from '@/lectures/lecture26-exercise/components/layout/Footer';
+import Header from '@/lectures/lecture26-exercise/components/layout/Header';
 import CartProvider from '@/lectures/lecture26-exercise/features/cart/CartProvider';
 import ThemeProvider from '@/lectures/lecture26-exercise/features/theme/ThemeProvider';
 
@@ -13,7 +14,7 @@ export default function Layout() {
           <main>
             <Outlet />
           </main>
-          {/* <Footer /> */}
+          <Footer />
         </CartProvider>
       </ThemeProvider>
     </>
