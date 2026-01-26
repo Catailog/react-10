@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router';
 
+import ScrollToTop from '@/components/ScrollToTop';
 import { type RouteType, routes } from '@/routes/routes';
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
+        <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>{renderRoutes(routes)}</Route>
           <Route path="*" element={<NotFound />} />

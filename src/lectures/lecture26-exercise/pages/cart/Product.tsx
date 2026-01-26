@@ -46,7 +46,9 @@ export default function Product(productProps: ProductProps) {
         </div>
       </div>
       <div className="text-right">
-        <p className="font-bold text-blue-600 dark:text-blue-400">{`${(product.price * product.quantity).toLocaleString()}원`}</p>
+        <p className="font-bold text-blue-600 dark:text-blue-400">
+          {(product.price * product.quantity).toLocaleString()}원
+        </p>
       </div>
     </div>
   );
