@@ -8,26 +8,38 @@ export default function Product({ products }: { products: ProductType[] }) {
   return products.map((product) => (
     <div
       key={product.id}
-      className="flex flex-col rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-md dark:border-gray-700"
+      className="flex flex-col justify-between rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-md dark:border-gray-700"
     >
-      <div className="mb-3 flex h-48 items-center justify-center bg-gray-100 dark:bg-gray-700">
-        <span className="text-4xl">🖼️</span>
+      <div>
+        <div className="mb-3 flex h-48 items-center justify-center bg-gray-100 dark:bg-gray-700">
+          <span className="text-4xl">🖼️</span>
+        </div>
+        <h3 className="mb-2 font-bold text-gray-800 dark:text-white">{product.name}</h3>
+        <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{product.description}</p>
       </div>
-      <h3 className="mb-2 font-bold text-gray-800 dark:text-white">{product.name}</h3>
-      <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{product.description}</p>
-      <div className="flex items-center justify-between">
-        <span className="text-lg font-bold text-blue-600">{product.price.toLocaleString()}원</span>
-        <span className="text-sm text-gray-500">⭐ {product.rating}</span>
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-row items-end justify-between">
+          <div className="flex flex-col justify-end">
+            <span className="text-lg font-bold text-blue-600">
+              {product.price.toLocaleString()}원
+            </span>
+            <span className="text-xs text-nowrap text-gray-500">
+              ⭐ {product.rating}({product.reviews})
+            </span>
+          </div>
+          <span className="text-xs text-nowrap text-gray-500">재고: {product.stock}개</span>
+        </div>
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={() => {
+            increaseQuantity(product);
+          }}
+          className="w-full"
+        >
+          🛒 장바구니 담기
+        </Button>
       </div>
-      <Button
-        variant="primary"
-        size="sm"
-        onClick={() => {
-          increaseQuantity(product);
-        }}
-      >
-        🛒 장바구니 담기
-      </Button>
     </div>
   ));
 }
