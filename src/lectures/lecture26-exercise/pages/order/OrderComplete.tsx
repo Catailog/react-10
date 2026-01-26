@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import type { CartProduct } from '@/lectures/lecture26-exercise/features/cart/cart';
+import OrderProduct from '@/lectures/lecture26-exercise/pages/order/OrderProduct';
 import type { ShippingInfo } from '@/lectures/lecture26-exercise/types/shippingInfo';
 
 interface OrderCompleteProps {
@@ -86,14 +87,7 @@ export default function OrderComplete(orderCompleteProps: OrderCompleteProps) {
         </h3>
         <div className="space-y-3">
           {orderProducts.map((product) => (
-            <div className="flex justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
-                {product.name} x {product.quantity}
-              </span>
-              <span className="font-semibold">
-                {(product.price * product.quantity).toLocaleString()}원
-              </span>
-            </div>
+            <OrderProduct key={product.id} product={product} />
           ))}
 
           <div className="border-t pt-3 dark:border-gray-700">
