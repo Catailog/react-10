@@ -2,7 +2,8 @@ import { lazy } from 'react';
 
 export type RouteType = {
   path?: string;
-  element: ReturnType<typeof lazy>;
+  element: React.ComponentType;
+  providers?: React.ComponentType<{ children: React.ReactNode }>[];
   index?: boolean;
   children?: RouteType[];
   label?: string;

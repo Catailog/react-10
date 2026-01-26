@@ -10,16 +10,23 @@ export default function App() {
   const NotFound = lazy(() => import('@/lectures/NotFound'));
   const renderRoutes = (routeList: RouteType[]) =>
     routeList.map((route) => {
-      if ('children' in route && route.children) {
+      const Element = route.element;
+
+      const content = route.providers ? (
+        route.providers.reduceRight((acc, Provider) => <Provider>{acc}</Provider>, <Element />)
+      ) : (
+        <Element />
+      );
+
+      if (route.children) {
         return (
-          <Route key={route.path} path={route.path} element={<route.element />}>
+          <Route key={route.path} path={route.path} element={content}>
             {renderRoutes(route.children)}
           </Route>
         );
       }
-      return (
-        <Route key={route.path} path={route.path} index={route.index} element={<route.element />} />
-      );
+
+      return <Route key={route.path} path={route.path} index={route.index} element={content} />;
     });
 
   return (

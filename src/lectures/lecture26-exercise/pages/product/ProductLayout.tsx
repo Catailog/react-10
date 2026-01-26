@@ -4,6 +4,7 @@ import EmptyState from '@/lectures/lecture26-exercise/components/common/EmptySta
 import ErrorState from '@/lectures/lecture26-exercise/components/common/ErrorState';
 import LoadingState from '@/lectures/lecture26-exercise/components/common/LoadingState';
 import type { ProductType } from '@/lectures/lecture26-exercise/data/products';
+import useSearch from '@/lectures/lecture26-exercise/features/search/useSearch';
 import { useFetch } from '@/lectures/lecture26-exercise/hooks/useFetch';
 import ProductGrid from '@/lectures/lecture26-exercise/pages/product/ProductGrid';
 import ProductSideBar from '@/lectures/lecture26-exercise/pages/product/ProductSideBar';
@@ -22,11 +23,13 @@ export default function ProductLayout() {
       category: null,
       priceRange: { min: 0, max: 300000 },
       sortOption: 'name',
+      searchTerm: '',
     };
   };
 
   const [filter, setFilter] = React.useState<Filter>(initFilter);
   const { data, error, isLoading } = useFetch<FetchResponse>(BASE_URL);
+  const { debouncedTerm } = useSearch();
 
   const filteredProducts = React.useMemo(() => {
     if (!data) return [];
@@ -40,6 +43,10 @@ export default function ProductLayout() {
         filter.priceRange &&
         (product.price < filter.priceRange.min || product.price > filter.priceRange.max)
       ) {
+        return false;
+      }
+
+      if (!product.name.includes(debouncedTerm)) {
         return false;
       }
 
@@ -62,24 +69,20 @@ export default function ProductLayout() {
     };
 
     return filteredProducts.sort(comparator);
-  }, [data, filter]);
+  }, [data, filter, debouncedTerm]);
 
   const setCategory = (category: Category | null) => {
     setFilter((prev) => ({ ...prev, category }));
   };
-
   const setMinPrice = (price: number) => {
     setFilter((prev) => ({ ...prev, priceRange: { ...prev.priceRange, min: price } }));
   };
-
   const setMaxPrice = (price: number) => {
     setFilter((prev) => ({ ...prev, priceRange: { ...prev.priceRange, max: price } }));
   };
-
   const resetFilter = () => {
     setFilter(initFilter());
   };
-
   const setSortOption = (sortOption: SortOption) => {
     setFilter((prev) => ({ ...prev, sortOption }));
   };

@@ -59,7 +59,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
         cartProducts,
         increaseQuantity,
         decreaseQuantity,
-        removeProduct: removeProduct,
+        removeProduct,
         resetCart,
       }}
     >

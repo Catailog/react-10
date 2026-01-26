@@ -6,4 +6,5 @@ export type Filter = {
   category: Category | null;
   priceRange: PriceRange;
   sortOption: SortOption;
+  searchTerm: string;
 };
