@@ -15,13 +15,10 @@ export default function Header() {
     return totalQuantity < 10 ? totalQuantity : '9+';
   };
 
-  // TODO: 헤더 버튼 기능
-  const onClick = () => {};
-
   return (
     <div className="sticky top-0 z-40 flex flex-row items-center gap-4 border-b bg-white p-4 shadow-sm">
       <Link to="/lecture26-ex">
-        <MenuButton onClick={onClick}>
+        <MenuButton>
           <span className="cursor-pointer text-2xl font-bold text-blue-600">🛍️ Mini Shop</span>
         </MenuButton>
       </Link>
@@ -29,17 +26,19 @@ export default function Header() {
       <div className="flex flex-row gap-3 text-2xl">
         <MenuButton onClick={toggleTheme}>{theme === 'light' ? '☀️' : '🌙'}</MenuButton>
         <Link to="/lecture26-ex/cart" className="relative">
-          <MenuButton onClick={onClick}>
+          <MenuButton>
             <span>🛒</span>
           </MenuButton>
-          <span
-            className={clsx(
-              'absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center',
-              'rounded-full bg-red-500 text-xs font-bold text-white',
-            )}
-          >
-            {getCartTotalQuantity()}
-          </span>
+          {cartProducts.length > 0 && (
+            <span
+              className={clsx(
+                'absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center',
+                'rounded-full bg-red-500 text-xs font-bold text-white',
+              )}
+            >
+              {getCartTotalQuantity()}
+            </span>
+          )}
         </Link>
       </div>
     </div>
