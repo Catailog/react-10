@@ -91,10 +91,6 @@ export default function ProductSideBar(productSideBarProps: ProductSideBarProps)
               {label}
             </option>
           ))}
-          {/* <option value="name">이름순</option>
-          <option value="price-asc">가격 낮은순</option>
-          <option value="price-desc">가격 높은순</option>
-          <option value="rating">평점순</option> */}
         </select>
       </div>
     </div>
