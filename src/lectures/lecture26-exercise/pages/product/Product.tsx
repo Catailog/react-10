@@ -25,7 +25,11 @@ export default function Product({ products }: { products: ProductType[] }) {
         >
           <div>
             <div className="mb-3 flex h-48 items-center justify-center bg-gray-100 dark:bg-gray-700">
-              <span className="text-4xl">🖼️</span>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
             <h3 className="mb-2 font-bold text-gray-800 dark:text-white">{product.name}</h3>
             <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{product.description}</p>
@@ -55,7 +59,7 @@ export default function Product({ products }: { products: ProductType[] }) {
           </div>
         </div>
       ))}
-      ;{isModalOpened && <ProductModal product={modalProduct} toggleModal={toggleModal} />}
+      {isModalOpened && <ProductModal product={modalProduct} toggleModal={toggleModal} />}
     </>
   );
 }

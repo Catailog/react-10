@@ -9,7 +9,7 @@ interface ProductProps {
   removeProduct: (product: ProductType) => void;
 }
 
-export default function Product(productProps: ProductProps) {
+export default function CartProduct(productProps: ProductProps) {
   const { product, increaseQuantity, decreaseQuantity, removeProduct } = productProps;
 
   return (

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import useCart from '@/lectures/lecture26-exercise/features/cart/useCart';
 
-export default function OrderInfo() {
+export default function CartOrderInfo() {
   const { cartProducts } = useCart();
 
   const totalPrice = React.useMemo(

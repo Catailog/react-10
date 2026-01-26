@@ -1,6 +1,6 @@
 import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import Modal from '@/lectures/lecture26-exercise/components/common/Modal';
-import type { ProductType } from '@/lectures/lecture26-exercise/data/products';
+import { type ProductType, categories } from '@/lectures/lecture26-exercise/data/products';
 import useCart from '@/lectures/lecture26-exercise/features/cart/useCart';
 
 export default function ProductModal({
@@ -11,16 +11,17 @@ export default function ProductModal({
   toggleModal: () => void;
 }) {
   const { increaseQuantity } = useCart();
+  const category = categories.find((p) => p.id === product.category);
 
   return (
     <Modal toggleModal={toggleModal}>
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex items-center justify-center rounded-lg bg-gray-100 p-8 dark:bg-gray-700">
-          <span className="text-9xl">🖼️</span>
+          <img src={product.image} alt={product.name} />
         </div>
         <div className="space-y-4">
           <div className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm dark:bg-blue-900">
-            👕 패션
+            {category?.icon} {category?.name}
           </div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{product.name}</h2>
           <div className="flex items-center gap-2">

@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 import Button from '@/lectures/lecture26-exercise/components/common/Button';
 
-export default function ProductEmpty() {
+export default function CartProductEmpty() {
   return (
     <div className="flex min-h-100 items-center justify-center">
       <div className="flex flex-col items-center gap-2">

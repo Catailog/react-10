@@ -1,8 +1,8 @@
 import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import useCart from '@/lectures/lecture26-exercise/features/cart/useCart';
-import Product from '@/lectures/lecture26-exercise/pages/cart/Product';
+import CartProduct from '@/lectures/lecture26-exercise/pages/cart/CartProduct';
 
-export default function ProductList() {
+export default function CartProductList() {
   const { cartProducts, increaseQuantity, decreaseQuantity, removeProduct, resetCart } = useCart();
 
   return (
@@ -17,7 +17,7 @@ export default function ProductList() {
       </div>
       <div className="flex flex-col gap-4">
         {cartProducts.map((product) => (
-          <Product
+          <CartProduct
             key={product.id}
             product={product}
             increaseQuantity={increaseQuantity}
