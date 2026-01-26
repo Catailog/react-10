@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline';
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'danger';
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
@@ -17,6 +17,7 @@ export default function Button(buttonProps: ButtonProps) {
     primary: 'bg-blue-500 text-white hover:bg-blue-600 font-semibold',
     secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
     outline: 'border-2 border-blue-500 text-blue-500 hover:bg-blue-50 font-semibold',
+    danger: 'bg-red-500 font-semibold text-white hover:bg-red-600',
   };
   const sizeStyle = {
     xs: 'px-3 py-1 text-sm',

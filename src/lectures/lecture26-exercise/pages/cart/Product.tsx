@@ -1,3 +1,4 @@
+import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import type { ProductType } from '@/lectures/lecture26-exercise/data/products';
 import type { CartProduct } from '@/lectures/lecture26-exercise/features/cart/cart';
 
@@ -23,26 +24,25 @@ export default function Product(productProps: ProductProps) {
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <button
+            <Button
+              variant="outline"
               onClick={() => decreaseQuantity(product)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg border hover:bg-gray-100"
             >
               -
-            </button>
+            </Button>
             <span className="w-8 text-center font-semibold">{product.quantity}</span>
-            <button
+            <Button
+              variant="outline"
               onClick={() => increaseQuantity(product)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border hover:bg-gray-100 disabled:opacity-50 dark:border-gray-600 dark:hover:bg-gray-700"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg border hover:bg-gray-100"
             >
               +
-            </button>
+            </Button>
           </div>
-          <button
-            onClick={() => removeProduct(product)}
-            className="rounded-lg bg-red-500 px-3 py-1 text-sm font-semibold text-white transition-all hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-50"
-          >
+          <Button variant="danger" size="xs" onClick={() => removeProduct(product)}>
             삭제
-          </button>
+          </Button>
         </div>
       </div>
       <div className="text-right">
