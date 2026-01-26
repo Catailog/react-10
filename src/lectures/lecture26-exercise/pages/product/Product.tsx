@@ -1,6 +1,11 @@
+import clsx from 'clsx';
+
 import type { ProductType } from '@/lectures/lecture26-exercise/data/products';
+import useCart from '@/lectures/lecture26-exercise/features/cart/useCart';
 
 export default function Product({ products }: { products: ProductType[] }) {
+  const { increaseQuantity } = useCart();
+
   return products.map((product) => (
     <div
       key={product.id}
@@ -15,6 +20,17 @@ export default function Product({ products }: { products: ProductType[] }) {
         <span className="text-lg font-bold text-blue-600">{product.price.toLocaleString()}원</span>
         <span className="text-sm text-gray-500">⭐ {product.rating}</span>
       </div>
+      <button
+        className={clsx(
+          `w-full cursor-pointer rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white transition-all`,
+          `hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50`,
+        )}
+        onClick={() => {
+          increaseQuantity(product);
+        }}
+      >
+        🛒 장바구니 담기
+      </button>
     </div>
   ));
 }

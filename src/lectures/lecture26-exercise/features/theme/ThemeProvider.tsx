@@ -7,10 +7,6 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [theme, setTheme] = React.useState<Theme>(getCurTheme);
 
   React.useEffect(() => {
-    setTheme(() => getCurTheme());
-  }, []);
-
-  React.useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
