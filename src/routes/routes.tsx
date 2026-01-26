@@ -149,6 +149,11 @@ export const routes: RouteType[] = [
         element: lazy(() => import('@/lectures/lecture26-exercise/pages/product')),
         hideInNav: true,
       },
+      {
+        path: 'cart',
+        element: lazy(() => import('@/lectures/lecture26-exercise/pages/cart')),
+        hideInNav: true,
+      },
     ],
   },
 ] as const;

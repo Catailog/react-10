@@ -11,9 +11,7 @@ export default function Header() {
   const { cartProducts } = useCart();
 
   const getCartTotalQuantity = () => {
-    const totalQuantity = cartProducts.reduce<number>((sum, product) => sum + product.quantity, 0);
-    console.log(cartProducts);
-    console.log(totalQuantity);
+    const totalQuantity = cartProducts.reduce((sum, product) => sum + product.quantity, 0);
     return totalQuantity < 10 ? totalQuantity : '9+';
   };
 
@@ -30,7 +28,7 @@ export default function Header() {
       <SearchBar />
       <div className="flex flex-row gap-3 text-2xl">
         <MenuButton onClick={toggleTheme}>{theme === 'light' ? '☀️' : '🌙'}</MenuButton>
-        <Link to="/lectures/lecture26-ex/cart" className="relative">
+        <Link to="/lecture26-ex/cart" className="relative">
           <MenuButton onClick={onClick}>
             <span>🛒</span>
           </MenuButton>

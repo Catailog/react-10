@@ -14,7 +14,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
 
   const increaseQuantity = (newProduct: ProductType) => {
     setCartProducts((prev) => {
-      const productInCart = cartProducts.find((product) => product.id === newProduct.id);
+      const productInCart = prev.find((product) => product.id === newProduct.id);
       if (productInCart) {
         return prev.map((p) =>
           p.id === newProduct.id ? { ...p, quantity: Math.min(p.quantity + 1, p.stock) } : p,
@@ -24,10 +24,34 @@ export default function CartProvider({ children }: { children: React.ReactNode }
       }
     });
   };
-  // TODO: 장바구니 제거 기능들
-  const decreaseQuantity = (product: ProductType) => {};
-  const resetQuantity = (product: ProductType) => {};
-  const resetCart = () => {};
+  const decreaseQuantity = (productToDecrease: ProductType) => {
+    setCartProducts((prev) => {
+      const productInCart = prev.find((product) => product.id === productToDecrease.id);
+
+      if (!productInCart) return prev;
+
+      if (productInCart.quantity === 1) {
+        return prev.filter((p) => p.id !== productToDecrease.id);
+      } else {
+        return prev.map((p) =>
+          p.id === productToDecrease.id ? { ...p, quantity: Math.max(p.quantity - 1, 0) } : p,
+        );
+      }
+    });
+  };
+  const removeProduct = (productToReset: ProductType) => {
+    setCartProducts((prev) => {
+      const productInCart = prev.find((product) => product.id === productToReset.id);
+      if (productInCart) {
+        return prev.filter((p) => p.id !== productToReset.id);
+      } else {
+        return [...prev];
+      }
+    });
+  };
+  const resetCart = () => {
+    setCartProducts([]);
+  };
 
   return (
     <CartContext.Provider
@@ -35,7 +59,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
         cartProducts,
         increaseQuantity,
         decreaseQuantity,
-        resetQuantity,
+        removeProduct: removeProduct,
         resetCart,
       }}
     >

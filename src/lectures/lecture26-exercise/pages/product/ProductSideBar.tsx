@@ -1,5 +1,5 @@
+import Button from '@/lectures/lecture26-exercise/components/common/Button';
 import RadioItem from '@/lectures/lecture26-exercise/components/common/RadioItem';
-import SecondaryButton from '@/lectures/lecture26-exercise/components/common/SecondaryButton';
 import Slider from '@/lectures/lecture26-exercise/components/common/Slider';
 import { categories } from '@/lectures/lecture26-exercise/data/products';
 import type { Category } from '@/lectures/lecture26-exercise/types/category';
@@ -76,7 +76,9 @@ export default function ProductSideBar(productSideBarProps: ProductSideBarProps)
             최대: {max.toLocaleString()}원
           </Slider>
         </div>
-        <SecondaryButton onClick={resetFilter}>초기화</SecondaryButton>
+        <Button variant="secondary" size="sm" onClick={resetFilter}>
+          초기화
+        </Button>
       </div>
       <div className="flex flex-col">
         <h3 className="mb-3 font-bold text-gray-800 dark:text-white">정렬</h3>
