@@ -50,7 +50,7 @@ export default function CartLayout() {
             </div>
           </div>
           <div className="mt-6 flex gap-3">
-            <Link to="/lecture26-ex/product" className="flex-1">
+            <Link to="/lecture26-ex" className="flex-1">
               <Button variant="outline" size="lg" className="w-full">
                 계속 쇼핑하기
               </Button>

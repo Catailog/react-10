@@ -141,11 +141,6 @@ export const routes: RouteType[] = [
     children: [
       {
         index: true,
-        element: lazy(() => import('@/lectures/lecture26-exercise/pages/home')),
-        hideInNav: true,
-      },
-      {
-        path: 'product',
         element: lazy(() => import('@/lectures/lecture26-exercise/pages/product')),
         hideInNav: true,
       },

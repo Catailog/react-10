@@ -106,7 +106,7 @@ export default function OrderComplete(orderCompleteProps: OrderCompleteProps) {
           </div>
         </div>
       </div>
-      <Link to="/lecture26-ex/product">
+      <Link to="/lecture26-ex">
         <Button variant="primary" size="lg" className="w-full">
           쇼핑 계속하기
         </Button>
