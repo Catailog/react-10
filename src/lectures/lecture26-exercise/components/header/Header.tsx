@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import MenuButton from '@/lectures/lecture26-exercise/components/common/MenuButton';
 import SearchBar from '@/lectures/lecture26-exercise/components/header/SearchBar';
 import useTheme from '@/lectures/lecture26-exercise/features/theme/useTheme';
@@ -16,7 +18,9 @@ export default function Header() {
       <SearchBar />
       <div className="flex flex-row gap-3 text-2xl">
         <MenuButton onClick={toggleTheme}>{theme === 'light' ? '☀️' : '🌙'}</MenuButton>
-        <MenuButton onClick={onClick}>🛒</MenuButton>
+        <Link to="/lectures/lecture26-ex/cart">
+          <MenuButton onClick={onClick}>🛒</MenuButton>
+        </Link>
       </div>
     </div>
   );

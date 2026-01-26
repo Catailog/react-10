@@ -1,4 +1,3 @@
-import Header from '@/lectures/lecture26-exercise/components/header/Header';
 import ThemeProvider from '@/lectures/lecture26-exercise/features/theme/ThemeProvider';
 import ProductLayout from '@/lectures/lecture26-exercise/pages/product/ProductLayout';
 
@@ -44,7 +43,7 @@ function ShoppingApp() {
 }
 
 // TODO: Provider로 감싸기
-export default function App() {
+export default function Product() {
   return (
     <>
       <ThemeProvider>

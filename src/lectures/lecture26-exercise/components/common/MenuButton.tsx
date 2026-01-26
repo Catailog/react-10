@@ -3,7 +3,7 @@ export default function MenuButton({
   children,
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }) {
   return (
     <button
